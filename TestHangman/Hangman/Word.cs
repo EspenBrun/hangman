@@ -78,11 +78,11 @@ namespace TestHangman
             return true;
         }
 
-        //-------------Only for Console App test------------------------
-        public void printWord(Word word)
-        {
-            Console.WriteLine("{0}", word.WordContent);
-        }
+        ////-------------Only for Console App test------------------------
+        //public void printWord(Word word)
+        //{
+        //    Console.WriteLine("{0}", word.WordContent);
+        //}
     }
 
 
