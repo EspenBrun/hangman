@@ -1,0 +1,6 @@
+c:\Users\Olena\documents\visual studio 2017\Projects\Hangman\TestHangman\bin\Debug\TestHangman.exe.config
+c:\Users\Olena\documents\visual studio 2017\Projects\Hangman\TestHangman\bin\Debug\TestHangman.exe
+c:\Users\Olena\documents\visual studio 2017\Projects\Hangman\TestHangman\bin\Debug\TestHangman.pdb
+c:\Users\Olena\documents\visual studio 2017\Projects\Hangman\TestHangman\obj\Debug\TestHangman.csprojResolveAssemblyReference.cache
+c:\Users\Olena\documents\visual studio 2017\Projects\Hangman\TestHangman\obj\Debug\TestHangman.exe
+c:\Users\Olena\documents\visual studio 2017\Projects\Hangman\TestHangman\obj\Debug\TestHangman.pdb
