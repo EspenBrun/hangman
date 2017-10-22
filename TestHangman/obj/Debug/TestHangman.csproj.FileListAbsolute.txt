@@ -4,3 +4,9 @@ c:\Users\Olena\documents\visual studio 2017\Projects\Hangman\TestHangman\bin\Deb
 c:\Users\Olena\documents\visual studio 2017\Projects\Hangman\TestHangman\obj\Debug\TestHangman.csprojResolveAssemblyReference.cache
 c:\Users\Olena\documents\visual studio 2017\Projects\Hangman\TestHangman\obj\Debug\TestHangman.exe
 c:\Users\Olena\documents\visual studio 2017\Projects\Hangman\TestHangman\obj\Debug\TestHangman.pdb
+C:\Users\Espen\Dropbox\Universitet\2017 NTNU Nettstudier Programmering\Teamarbeid\hangman\TestHangman\bin\Debug\TestHangman.exe.config
+C:\Users\Espen\Dropbox\Universitet\2017 NTNU Nettstudier Programmering\Teamarbeid\hangman\TestHangman\obj\Debug\TestHangman.exe
+C:\Users\Espen\Dropbox\Universitet\2017 NTNU Nettstudier Programmering\Teamarbeid\hangman\TestHangman\obj\Debug\TestHangman.pdb
+C:\Users\Espen\Dropbox\Universitet\2017 NTNU Nettstudier Programmering\Teamarbeid\hangman\TestHangman\bin\Debug\TestHangman.exe
+C:\Users\Espen\Dropbox\Universitet\2017 NTNU Nettstudier Programmering\Teamarbeid\hangman\TestHangman\bin\Debug\TestHangman.pdb
+C:\Users\Espen\Dropbox\Universitet\2017 NTNU Nettstudier Programmering\Teamarbeid\hangman\TestHangman\obj\Debug\TestHangman.csprojResolveAssemblyReference.cache
