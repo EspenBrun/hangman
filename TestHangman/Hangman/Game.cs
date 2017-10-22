@@ -45,7 +45,7 @@ namespace TestHangman.Hangman
 
         public void guessLetter()
         {
-            char guessLetter = Console.ReadKey().KeyChar;
+            char guessLetter = char.ToUpper(Console.ReadKey().KeyChar);
             Console.WriteLine("\n");
             Console.WriteLine("Your guess is: {0}\n",guessLetter);
             bool found = word.findCharLetter(guessLetter);
