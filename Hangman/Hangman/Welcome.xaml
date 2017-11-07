@@ -57,7 +57,6 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!-- People list -->
 
         <Label Grid.Row="0" Grid.Column="1" Style="{StaticResource headerTextStyle}" >
             HANGMAN
@@ -69,13 +68,17 @@
             </TextBlock>
         </Border>
 
-        <TextBox Grid.Row="2" Grid.Column="1"></TextBox>
+        <TextBox Grid.Row="2" Grid.Column="1" Name="wordInput"/>
 
+        <!-- People list -->
         <ListBox Name="peopleListBox" Grid.Row="3" Grid.Column="1"
             ItemsSource="{Binding Source={StaticResource ExpenseDataSource}, XPath=Person}"
-            ItemTemplate="{StaticResource nameItemTemplate}">
-        </ListBox>
-        <!-- View report button -->
-        <Button Grid.Row="4" Grid.Column="1" Click="Start_Game" Style="{StaticResource buttonStyle}">View</Button>
+            ItemTemplate="{StaticResource nameItemTemplate}" />
+        
+        <!-- Start game button -->
+        <Button Grid.Row="4" Grid.Column="1" Click="StartGame" 
+                Style="{StaticResource buttonStyle}" 
+                IsEnabled="{Binding ElementName=wordInput, Path=Text.Length, Mode=OneWay}"
+                Content="Start"/>
     </Grid>
 </Page>
