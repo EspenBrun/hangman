@@ -24,5 +24,10 @@ namespace Hangman
         {
             InitializeComponent();
         }
+
+        public Guess(object data) : this()
+        {
+            this.DataContext = data;
+        }
     }
 }

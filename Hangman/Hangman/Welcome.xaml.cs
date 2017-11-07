@@ -28,8 +28,8 @@ namespace Hangman
         private void Start_Game(object sender, RoutedEventArgs e)
         {
             // View Expense Report
-            Guess guess = new Guess();
-            this.NavigationService.Navigate(guess);
+            Guess guess = new Guess(peopleListBox.SelectedItem);
+            NavigationService.Navigate(guess);
         }
     }
 }
