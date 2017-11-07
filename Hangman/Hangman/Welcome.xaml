@@ -39,7 +39,7 @@
             </XmlDataProvider>
         </Grid.Resources>
         <Grid.Background>
-            <ImageBrush ImageSource="img\hanging.png"  />
+            <SolidColorBrush Color="BlanchedAlmond"/>
         </Grid.Background>
 
         <Grid.ColumnDefinitions>
