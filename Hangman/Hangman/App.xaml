@@ -63,7 +63,7 @@
             <Setter Property="Width" Value="125" />
             <Setter Property="Height" Value="25" />
             <Setter Property="Margin" Value="0,10,0,0" />
-            <Setter Property="HorizontalAlignment" Value="Right" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
         </Style>
     </Application.Resources>
 </Application>

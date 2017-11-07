@@ -43,31 +43,39 @@
         </Grid.Background>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="230" />
-            <ColumnDefinition />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition  Width="*"/>
+            <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition />
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <!-- People list -->
 
-        <Label Grid.Column="1" Style="{StaticResource headerTextStyle}" >
-            View Expense Report
+        <Label Grid.Row="0" Grid.Column="1" Style="{StaticResource headerTextStyle}" >
+            HANGMAN
         </Label>
 
-        <Border Grid.Column="1" Grid.Row="1" Style="{StaticResource listHeaderStyle}">
-            <Label Style="{StaticResource listHeaderTextStyle}">Names</Label>
+        <Border Grid.Row="1" Grid.Column="1" >
+            <TextBlock TextWrapping="WrapWithOverflow" >
+                Vi tar med spillerne inn i en historie der Gjetteren har havnet i et tilholdssted for lovløse er den som velger ordet er lederen. Gjetteren har blitt tatt på fersken i å stjele rasjoner og våpen, og har blitt dømt til å henges. Det er kun en måte å bli benådet på, å det er ved å gjette et ord som lederen har valgt. Vi ønsker å engasjere spillerne ved å la den ene bli en leder av en by med lovløse, og den andre med at det er deres eget liv som står på spill i ordleken.
+            </TextBlock>
         </Border>
-        <ListBox Name="peopleListBox" Grid.Column="1" Grid.Row="2" 
+
+        <TextBox Grid.Row="2" Grid.Column="1"></TextBox>
+
+        <ListBox Name="peopleListBox" Grid.Row="3" Grid.Column="1"
             ItemsSource="{Binding Source={StaticResource ExpenseDataSource}, XPath=Person}"
             ItemTemplate="{StaticResource nameItemTemplate}">
         </ListBox>
         <!-- View report button -->
-        <Button Grid.Column="1" Grid.Row="3" Click="Start_Game" Style="{StaticResource buttonStyle}">View</Button>
+        <Button Grid.Row="4" Grid.Column="1" Click="Start_Game" Style="{StaticResource buttonStyle}">View</Button>
     </Grid>
 </Page>
