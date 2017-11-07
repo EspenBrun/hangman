@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Hangman
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Guess.xaml
     /// </summary>
-    public partial class MainWindow : NavigationWindow
+    public partial class Guess : Page
     {
-        public MainWindow()
+        public Guess()
         {
             InitializeComponent();
         }
