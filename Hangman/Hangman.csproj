@@ -55,12 +55,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Game.cs" />
     <Compile Include="Guess.xaml.cs">
       <DependentUpon>Guess.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Letter.cs" />
     <Compile Include="Welcome.xaml.cs">
       <DependentUpon>Welcome.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Word.cs" />
     <Page Include="Guess.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

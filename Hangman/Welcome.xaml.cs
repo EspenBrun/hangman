@@ -28,9 +28,10 @@ namespace Hangman
         private void StartGame(object sender, RoutedEventArgs e)
         {
             // View Expense Report
-            string word = wordInput.Text;
+            Word word = new Word(wordInput.Text);
+            
             Console.WriteLine(word);
-            Guess guess = new Guess(peopleListBox.SelectedItem);
+            Guess guess = new Guess(peopleListBox.SelectedItem, word);
             NavigationService.Navigate(guess);
         }
     }

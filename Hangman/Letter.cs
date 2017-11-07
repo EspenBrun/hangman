@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Hangman
 {
-    class Letter
+    public class Letter
     {
         public Letter(char letter)
         {

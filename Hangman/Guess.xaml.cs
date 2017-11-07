@@ -20,14 +20,17 @@ namespace Hangman
     /// </summary>
     public partial class Guess : Page
     {
+        private Word word;
+
         public Guess()
         {
             InitializeComponent();
         }
 
-        public Guess(object data) : this()
+        public Guess(object data, Word word) : this()
         {
             this.DataContext = data;
+            this.word = word;
         }
     }
 }

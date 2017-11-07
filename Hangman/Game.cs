@@ -19,7 +19,7 @@ namespace Hangman
         {
             string show = "";
 
-            foreach (var pair in word.IndexLetterPairs)
+            foreach (var pair in word.getIndexLetterPairs())
             {
                 if (pair.Value.IsOpen)
                 {
@@ -35,7 +35,7 @@ namespace Hangman
 
             show = "";
 
-            foreach (var pair in word.IndexLetterPairs)
+            foreach (var pair in word.getIndexLetterPairs())
             {
                 show = show + "&";
             }
