@@ -24,5 +24,12 @@ namespace Hangman
         {
             InitializeComponent();
         }
+
+        private void Start_Game(object sender, RoutedEventArgs e)
+        {
+            // View Expense Report
+            Guess guess = new Guess();
+            this.NavigationService.Navigate(guess);
+        }
     }
 }
