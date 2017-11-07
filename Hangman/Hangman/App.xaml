@@ -4,6 +4,21 @@
              xmlns:local="clr-namespace:Hangman"
              StartupUri="Welcome.xaml">
     <Application.Resources>
+        <Style TargetType="{x:Type NavigationWindow}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type NavigationWindow}">
+
+                        <AdornerDecorator>
+                            <ContentPresenter Name="PART_NavWinCP" 
+                              ClipToBounds="true"/>
+                        </AdornerDecorator>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
         <!-- Header text style -->
         <Style x:Key="headerTextStyle">
             <Setter Property="Label.VerticalAlignment" Value="Center"></Setter>
