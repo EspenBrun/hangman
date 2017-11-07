@@ -1,0 +1,43 @@
+﻿<Page x:Class="Hangman.Welcome"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Hangman"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="Welcome">
+
+    <Grid Margin="10,0,10,10">
+        <Grid.Background>
+            <SolidColorBrush Color="BlanchedAlmond"/>
+        </Grid.Background>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition  Width="*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="1" Style="{StaticResource headerTextStyle}" >
+            HANGMAN
+        </Label>
+
+        <Border Grid.Row="1" Grid.Column="1" >
+            <TextBlock TextWrapping="WrapWithOverflow" >
+                Vi tar med spillerne inn i en historie der Gjetteren har havnet i et tilholdssted for lovløse er den som velger ordet er lederen. Gjetteren har blitt tatt på fersken i å stjele rasjoner og våpen, og har blitt dømt til å henges. Det er kun en måte å bli benådet på, å det er ved å gjette et ord som lederen har valgt. Vi ønsker å engasjere spillerne ved å la den ene bli en leder av en by med lovløse, og den andre med at det er deres eget liv som står på spill i ordleken.
+            </TextBlock>
+        </Border>
+
+        <TextBox Grid.Row="2" Grid.Column="1" Name="wordInput"/>
+    </Grid>
+</Page>
