@@ -32,5 +32,11 @@ namespace Hangman
             this.DataContext = data;
             this.word = word;
         }
+
+        private void MakeGuess(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine("clicked");
+            guessedLettersLabel.Content = word.getWord();
+        }
     }
 }

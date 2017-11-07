@@ -75,6 +75,11 @@ namespace Hangman
             }
         }
 
+        public string getWord()
+        {
+            return word;
+        }
+
         public Dictionary<int, Letter> getIndexLetterPairs()
         {
             return indexLetterPairs;
