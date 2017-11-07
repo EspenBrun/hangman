@@ -9,35 +9,6 @@
       Title="Welcome">
 
     <Grid Margin="10,0,10,10">
-        <Grid.Resources>
-            <!-- Name item template -->
-            <DataTemplate x:Key="nameItemTemplate">
-                <Label Content="{Binding XPath=@Name}"/>
-            </DataTemplate>
-            <!-- Expense Report Data -->
-            <XmlDataProvider x:Key="ExpenseDataSource" XPath="Expenses">
-                <x:XData>
-                    <Expenses xmlns="">
-                        <Person Name="Mike" Department="Legal">
-                            <Expense ExpenseType="Lunch" ExpenseAmount="50" />
-                            <Expense ExpenseType="Transportation" ExpenseAmount="50" />
-                        </Person>
-                        <Person Name="Lisa" Department="Marketing">
-                            <Expense ExpenseType="Document printing" ExpenseAmount="50"/>
-                            <Expense ExpenseType="Gift" ExpenseAmount="125" />
-                        </Person>
-                        <Person Name="John" Department="Engineering">
-                            <Expense ExpenseType="Magazine subscription" ExpenseAmount="50"/>
-                            <Expense ExpenseType="New machine" ExpenseAmount="600" />
-                            <Expense ExpenseType="Software" ExpenseAmount="500" />
-                        </Person>
-                        <Person Name="Mary" Department="Finance">
-                            <Expense ExpenseType="Dinner" ExpenseAmount="100" />
-                        </Person>
-                    </Expenses>
-                </x:XData>
-            </XmlDataProvider>
-        </Grid.Resources>
         <Grid.Background>
             <SolidColorBrush Color="BlanchedAlmond"/>
         </Grid.Background>
@@ -57,7 +28,6 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-
         <Label Grid.Row="0" Grid.Column="1" Style="{StaticResource headerTextStyle}" >
             HANGMAN
         </Label>
@@ -69,16 +39,5 @@
         </Border>
 
         <TextBox Grid.Row="2" Grid.Column="1" Name="wordInput"/>
-
-        <!-- People list -->
-        <ListBox Name="peopleListBox" Grid.Row="3" Grid.Column="1"
-            ItemsSource="{Binding Source={StaticResource ExpenseDataSource}, XPath=Person}"
-            ItemTemplate="{StaticResource nameItemTemplate}" />
-        
-        <!-- Start game button -->
-        <Button Grid.Row="4" Grid.Column="1" Click="StartGame" 
-                Style="{StaticResource buttonStyle}" 
-                IsEnabled="{Binding ElementName=wordInput, Path=Text.Length, Mode=OneWay}"
-                Content="Start"/>
     </Grid>
 </Page>

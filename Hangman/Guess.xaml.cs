@@ -21,6 +21,8 @@ namespace Hangman
     public partial class Guess : Page
     {
         private Word word;
+        private readonly int GUESSES = 6;
+        private int currentGuess = 0;
 
         public Guess()
         {
@@ -35,8 +37,71 @@ namespace Hangman
 
         private void MakeGuess(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("clicked");
-            guessedLettersLabel.Content = word.getWord();
+            if (currentGuess >= GUESSES)
+            {
+                guessedLettersLabel.Content = $"You loose. The word was {word.getWord()}";
+                makeGuess.IsEnabled = false;
+            }
+            else
+            {
+                currentGuess++;
+                char guessedLetter = letterInput.Text.ToUpper().ToCharArray().First();
+                letterInput.Text = "";
+                bool found = word.findCharLetter(guessedLetter);
+                displayWord();
+                checkWin();
+            }
+        }
+
+        public void displayWord()
+        {
+            string show = "";
+
+            foreach (var pair in word.getIndexLetterPairs())
+            {
+                if (pair.Value.IsOpen)
+                {
+                    show = show + pair.Value.letter;
+                }
+                else
+                {
+                    show = show + " ";
+                }
+            }
+
+            guessedLettersLabel.Content = show;
+        }
+
+        public void guessLetter()
+        {
+            char guessLetter = char.ToUpper(Console.ReadKey().KeyChar);
+            Console.WriteLine("\n");
+            Console.WriteLine("Your guess is: {0}\n", guessLetter);
+            bool found = word.findCharLetter(guessLetter);
+        }
+
+        private void checkWin()
+        {
+            if (word.isOpen())
+            {
+                guessedLettersLabel.Content = $"Congratulations! The word was {word.getWord()}";
+                makeGuess.IsEnabled = false;
+            }
+        }
+
+        public void runGame()
+        {
+            Console.WriteLine("Welcome to Hangman ! ! ! \nGuess a letter !");
+            displayWord();
+
+            while (!word.isOpen())  //play the game while the word is not open entirely
+            {
+                guessLetter();
+                displayWord();
+
+            }
+
+            Console.WriteLine("Congratz");
         }
     }
 }

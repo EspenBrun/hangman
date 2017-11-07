@@ -14,7 +14,7 @@ namespace Hangman
 
         public Word(string word)
         {
-            this.word = word;
+            this.word = word.ToUpper();
             length = word.Length;
             indexLetterPairs = new Dictionary<int, Letter>();
             decomposeWordToLetters();
@@ -53,14 +53,6 @@ namespace Hangman
                 }
             }
 
-            //-------------------------
-
-            //Alternative 2:
-            //IndexLetterPairs.FirstOrDefault <> (
-            //                            (keyValue) => return true;  //condtion for finding the specific letter
-            //                          );
-
-            //--------------------------
             return result;
         }
 
