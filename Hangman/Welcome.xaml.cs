@@ -31,7 +31,7 @@ namespace Hangman
             Word word = new Word(wordInput.Text);
             
             Console.WriteLine(word);
-            Guess guess = new Guess(peopleListBox.SelectedItem, word);
+            Guess guess = new Guess(word);
             NavigationService.Navigate(guess);
         }
     }

@@ -29,9 +29,8 @@ namespace Hangman
             InitializeComponent();
         }
 
-        public Guess(object data, Word word) : this()
+        public Guess(Word word) : this()
         {
-            this.DataContext = data;
             this.word = word;
         }
 

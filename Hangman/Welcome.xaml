@@ -39,5 +39,11 @@
         </Border>
 
         <TextBox Grid.Row="2" Grid.Column="1" Name="wordInput"/>
+
+        <!-- Start game button -->
+        <Button Grid.Row="4" Grid.Column="1" Click="StartGame" 
+                Style="{StaticResource buttonStyle}" 
+                IsEnabled="{Binding ElementName=wordInput, Path=Text.Length, Mode=OneWay}"
+                Content="Start"/>
     </Grid>
 </Page>
