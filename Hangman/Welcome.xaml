@@ -10,7 +10,7 @@
 
     <Grid Margin="10,0,10,10">
         <Grid.Background>
-            <SolidColorBrush Color="BlanchedAlmond"/>
+            <SolidColorBrush Color="LightGray"/>
         </Grid.Background>
 
         <Grid.ColumnDefinitions>
@@ -21,7 +21,7 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -33,7 +33,7 @@
         </Label>
 
         <Border Grid.Row="1" Grid.Column="1" >
-            <TextBlock TextWrapping="WrapWithOverflow" >
+            <TextBlock TextWrapping="WrapWithOverflow" Margin="0,0,0,15">
                 Vi tar med spillerne inn i en historie der Gjetteren har havnet i et tilholdssted for lovløse er den som velger ordet er lederen. Gjetteren har blitt tatt på fersken i å stjele rasjoner og våpen, og har blitt dømt til å henges. Det er kun en måte å bli benådet på, å det er ved å gjette et ord som lederen har valgt. Vi ønsker å engasjere spillerne ved å la den ene bli en leder av en by med lovløse, og den andre med at det er deres eget liv som står på spill i ordleken.
             </TextBlock>
         </Border>

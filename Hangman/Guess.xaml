@@ -10,7 +10,7 @@
 
     <Grid>
         <Grid.Background>
-            <SolidColorBrush Color="BlanchedAlmond"/>
+            <SolidColorBrush Color="LightGray"/>
         </Grid.Background>
         
         <Grid.ColumnDefinitions>
@@ -37,16 +37,25 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Grid.Background>
-                <SolidColorBrush Color="Azure" />
-            </Grid.Background>
+            <StackPanel Grid.Row="1" Grid.Column="0">
+                <Label Name="wronglyGuessedLettersLabel" Style="{StaticResource labelStyle}"/>
+                <Label Name="guessesLeftLabel" Content="Du har 6 forsøk igjen" Style="{StaticResource labelStyle}"/>
+            </StackPanel>
         </Grid>
 
-        <Label Grid.Row="2" Grid.Column="1" Name="guessedLettersLabel"/>
+        <StackPanel Grid.Row="2" Grid.Column="1" >
+            <Label Style="{StaticResource labelStyle}">
+                <Label.Content>
+                    <TextBlock Name="guessedLettersTextBox" />
+                </Label.Content>
+            </Label>
+            <Label Name="infoLabel" Style="{StaticResource labelStyle}"/>
+        </StackPanel>
+        
 
         <TextBox Grid.Row="3" Grid.Column="1" Name="letterInput" MaxLength="1"/>
 
-        <Button Grid.Row="4" Grid.Column="1" Name="makeGuess" Content="Gjett" Click="MakeGuess" ></Button>
+        <Button Grid.Row="4" Grid.Column="1" Name="makeGuess" Content="Gjett" Click="MakeGuess" Style="{StaticResource buttonStyle}" />
 
     </Grid>
 </Page>

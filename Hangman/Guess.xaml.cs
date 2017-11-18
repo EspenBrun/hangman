@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Hangman
 {
@@ -22,7 +11,9 @@ namespace Hangman
     {
         private Word word;
         private readonly int GUESSES = 6;
-        private int currentGuess = 0;
+        private int wrongGuesses = 0;
+        private string guessedLetters = "";
+        private string wronglyGuessedLetters = "Bokstaver feil gjettet:\n";
 
         public Guess()
         {
@@ -32,75 +23,91 @@ namespace Hangman
         public Guess(Word word) : this()
         {
             this.word = word;
+            DisplayWord();
+            DisplayGuessesLeft();
+            DisplayWronglyGuessedLetters();
         }
 
         private void MakeGuess(object sender, RoutedEventArgs e)
         {
-            if (currentGuess >= GUESSES)
+            string guessedLetter = letterInput.Text.ToUpper();
+
+            if (!GuessedBefore(guessedLetter))
             {
-                guessedLettersLabel.Content = $"You loose. The word was {word.getWord()}";
-                makeGuess.IsEnabled = false;
-            }
-            else
-            {
-                currentGuess++;
-                char guessedLetter = letterInput.Text.ToUpper().ToCharArray().First();
+                guessedLetters += guessedLetter.ToString();
                 letterInput.Text = "";
-                bool found = word.findCharLetter(guessedLetter);
-                displayWord();
-                checkWin();
+
+                bool found = word.FindCharLetter(guessedLetter.ToCharArray().First());
+
+                if (!found)
+                {
+                    wronglyGuessedLetters += guessedLetter + " ";
+                    wrongGuesses++;
+                    DisplayGuessesLeft();
+                }
+
+                DisplayWronglyGuessedLetters();
+                DisplayWord();
+                CheckIfWonOrLost();
             }
         }
 
-        public void displayWord()
+        public void DisplayWord()
         {
             string show = "";
 
-            foreach (var pair in word.getIndexLetterPairs())
+            foreach (var pair in word.GetIndexLetterPairs())
             {
                 if (pair.Value.IsOpen)
                 {
-                    show = show + pair.Value.letter;
+                    show = show + pair.Value.letter + " ";
                 }
                 else
                 {
-                    show = show + " ";
+                    show = show + "_ ";
                 }
             }
 
-            guessedLettersLabel.Content = show;
+            guessedLettersTextBox.Text = show;
         }
 
-        public void guessLetter()
+        private void DisplayGuessesLeft()
         {
-            char guessLetter = char.ToUpper(Console.ReadKey().KeyChar);
-            Console.WriteLine("\n");
-            Console.WriteLine("Your guess is: {0}\n", guessLetter);
-            bool found = word.findCharLetter(guessLetter);
+            guessesLeftLabel.Content = $"Du har {GUESSES - wrongGuesses} forsøk igjen";
         }
 
-        private void checkWin()
+        private void DisplayWronglyGuessedLetters()
         {
-            if (word.isOpen())
+            wronglyGuessedLettersLabel.Content = wronglyGuessedLetters;
+        }
+
+        private bool GuessedBefore(string guessedLetter)
+        {
+            if (guessedLetters.Contains(guessedLetter.ToString()))
             {
-                guessedLettersLabel.Content = $"Congratulations! The word was {word.getWord()}";
+                infoLabel.Content = "Du har gjettet denne bokstaven før!";
+                return true;
+            }
+            else
+            {
+                infoLabel.Content = "";
+                return false;
+            }
+        }
+
+        private void CheckIfWonOrLost()
+        {
+            if (word.IsOpen())
+            {
+                guessedLettersTextBox.Text = $"Gratulerer, du vant! Ordet var {word.GetWord()}";
                 makeGuess.IsEnabled = false;
             }
-        }
-
-        public void runGame()
-        {
-            Console.WriteLine("Welcome to Hangman ! ! ! \nGuess a letter !");
-            displayWord();
-
-            while (!word.isOpen())  //play the game while the word is not open entirely
+            else if (wrongGuesses >= GUESSES)
             {
-                guessLetter();
-                displayWord();
-
+                guessedLettersTextBox.Text = $"Du tapte. Ordet var {word.GetWord()}";
+                makeGuess.IsEnabled = false;
+                letterInput.IsReadOnly = true;
             }
-
-            Console.WriteLine("Congratz");
         }
     }
 }
