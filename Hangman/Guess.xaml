@@ -55,7 +55,13 @@
 
         <TextBox Grid.Row="3" Grid.Column="1" Name="letterInput" MaxLength="1"/>
 
-        <Button Grid.Row="4" Grid.Column="1" Name="makeGuess" Content="Gjett" Click="MakeGuess" Style="{StaticResource buttonStyle}" />
+        <Button Grid.Row="4" 
+                Grid.Column="1" 
+                Name="makeGuess" 
+                Content="Gjett" 
+                Click="MakeGuess" 
+                Style="{StaticResource buttonStyle}"
+                IsEnabled="{Binding ElementName=letterInput, Path=Text.Length, Mode=OneWay}"/>
 
     </Grid>
 </Page>
