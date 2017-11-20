@@ -16,11 +16,6 @@ namespace Hangman
             DecomposeWordToLetters();
         }
 
-        public bool FindCharLetter(char letter)
-        {
-            return FindLetter(new Letter(letter));
-        }
-
         public bool IsOpen()   //to check if all the letters are open, i.e the game is won
         {
             foreach (var pair in indexLetterPairs)
@@ -33,18 +28,18 @@ namespace Hangman
             return true;
         }
 
-        private bool FindLetter(Letter Letter)  //returnes true if a specific letter is found, otherwise false. Also "opens" the letter if found.
+        public bool FindLetter(char letterChar)  //returnes true if a specific letter is found, otherwise false. Also "opens" the letter if found.
         {
+            Letter letter = new Letter(letterChar);
             bool result = false;
 
             foreach (var pair in indexLetterPairs)
             {
                 char pairLetter = pair.Value.letter;
-                if (pairLetter == Letter.letter)
+                if (pairLetter == letter.letter)
                 {
                     result = true;
                     pair.Value.IsOpen = true;
-
                 }
             }
 

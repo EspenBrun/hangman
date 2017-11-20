@@ -34,15 +34,13 @@ namespace Hangman
 
             if (!GuessedBefore(guessedLetter))
             {
-                guessedLetters += guessedLetter.ToString();
-                letterInput.Text = "";
+                AddToGuessedLetters(guessedLetter);
 
-                bool found = word.FindCharLetter(guessedLetter.ToCharArray().First());
+                bool found = FindLetter(guessedLetter);
 
                 if (!found)
                 {
-                    wronglyGuessedLetters += guessedLetter + " ";
-                    wrongGuesses++;
+                    AddToWronglyGuessedLetters(guessedLetter);
                     DisplayGuessesLeft();
                 }
 
@@ -52,7 +50,7 @@ namespace Hangman
             }
         }
 
-        public void DisplayWord()
+        private void DisplayWord()
         {
             string show = "";
 
@@ -79,6 +77,23 @@ namespace Hangman
         private void DisplayWronglyGuessedLetters()
         {
             wronglyGuessedLettersLabel.Content = wronglyGuessedLetters;
+        }
+
+        private void AddToWronglyGuessedLetters(string guessedLetter)
+        {
+            wronglyGuessedLetters += guessedLetter + " ";
+            wrongGuesses++;
+        }
+
+        private bool FindLetter(string guessedLetter)
+        {
+            return word.FindLetter(guessedLetter.ToCharArray().First());
+        }
+
+        private void AddToGuessedLetters(string guessedLetter)
+        {
+            guessedLetters += guessedLetter.ToString();
+            letterInput.Text = "";
         }
 
         private bool GuessedBefore(string guessedLetter)
